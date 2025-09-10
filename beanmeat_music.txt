@@ -1,0 +1,6 @@
+创建React项目，并支持ts
+
+```node
+create-react-app beanmeat_music --template typescript
+```
+
