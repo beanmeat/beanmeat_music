@@ -34,7 +34,7 @@ module.exports = {
 
 改完之后确实是将路径起别名，但是修改后报错
 
-![image-20250911001212583](E:\Beanmeat_project\beanmeat_music\beanmeat_music.assets\image-20250911001212583.png)
+![image-20250911001212583](.\images\beanmeat_music.assets\image-20250911001212583.png)
 
 此时报错是TS报错，TS在进行路径检测时候并不认识这个'@/App'，所以报错，在tsconfig.json文件中增加配置
 
