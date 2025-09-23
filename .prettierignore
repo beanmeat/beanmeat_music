@@ -1,0 +1,11 @@
+/.idea/*
+/node_modules/**
+/note/*
+/public/*
+
+
+/dist/*
+**/*.svg
+**/*.sh
+.local
+.output.js

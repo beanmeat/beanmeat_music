@@ -1,6 +1,6 @@
-## 项目初始化
+## project init
 
-### 创建项目
+### create project
 
 创建 `react `项目，并支持 `typescript`
 
@@ -8,7 +8,7 @@
 create-react-app beanmeat_music --template typescript
 ```
 
-### craco配置
+### craco
 
 安装 `craco`
 
@@ -88,3 +88,23 @@ module.exports = {
 ```
 
 目录别名配置成功！
+
+## 代码规范配置
+
+### editorconfig
+
+### prettier
+
+### eslint
+
+```shell
+npm install eslint -D
+```
+
+
+
+```shell
+npx eslint --init
+```
+
+![image-20250924000005538](images/beanmeat_music.assets/image-20250924000005538.png)
