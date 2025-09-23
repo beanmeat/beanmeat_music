@@ -98,13 +98,48 @@ module.exports = {
 ### eslint
 
 ```shell
-npm install eslint -D
+npm install eslint@8.57.0
 ```
 
 
 
 ```shell
-npx eslint --init
+// npx eslint --init
+
+npx @eslint/create-config@0.4.6
 ```
 
 ![image-20250924000005538](images/beanmeat_music.assets/image-20250924000005538.png)
+
+
+
+```shell
+npm install eslint-plugin-prettier eslint-config-prettier -D
+```
+
+```js
+module.exports = {
+  env: {
+    browser: true,
+    es2021: true,
+    node: true
+  },
+  extends: [
+    'eslint:recommended',
+    'plugin:@typescript-eslint/recommended',
+    'plugin:react/recommended',
+    'plugin:prettier/recommended'
+  ],
+  overrides: [],
+  parser: '@typescript-eslint/parser',
+  parserOptions: {
+    ecmaVersion: 'latest',
+    sourceType: 'module'
+  },
+  plugins: ['@typescript-eslint', 'react'],
+  rules: {
+    '@typescript-eslint/no-var-requires': 'off'
+  }
+}
+```
+
