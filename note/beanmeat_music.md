@@ -89,13 +89,13 @@ module.exports = {
 
 目录别名配置成功！
 
-## 代码规范配置
+### 代码规范配置
 
-### editorconfig
+#### editorconfig
 
-### prettier
+#### prettier
 
-### eslint
+#### eslint
 
 ```shell
 npm install eslint@8.57.0
@@ -143,3 +143,66 @@ module.exports = {
 }
 ```
 
+### [CSS重置&Less支持](https://4x.ant.design/docs/react/use-with-create-react-app-cn
+
+)
+
+[Normalize.css](https://necolas.github.io/normalize.css/)
+
+```shell
+npm install normalize.css
+```
+
+
+
+```tsx
+import React from 'react'
+import ReactDOM from 'react-dom/client'
+import App from '@/App'
+import 'normalize.css'
+
+const root = ReactDOM.createRoot(document.getElementById('root') as HTMLElement)
+
+root.render(<App />)
+```
+
+
+
+#### [Less支持](https://4x.ant.design/docs/react/use-with-create-react-app-cn)
+
+
+
+![image-20250924153423154](images/beanmeat_music.assets/image-20250924153423154.png)
+
+安装 `craco-less` 并修改 `craco.config.js` 文件如下
+
+```shell
+yarn add craco-less
+```
+
+
+
+```js
+const path = require('path')
+const CracoLessPlugin = require('craco-less')
+
+const resolve = (dir) => path.resolve(__dirname, dir)
+
+module.exports = {
+  plugins: [
+    {
+      plugin: CracoLessPlugin
+    }
+  ],
+  webpack: {
+    alias: {
+      '@': resolve('src')
+    }
+  }
+}
+
+```
+
+
+
+### react router
