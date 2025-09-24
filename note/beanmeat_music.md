@@ -206,3 +206,10 @@ module.exports = {
 
 
 ### react router
+
+
+
+```shell
+npm install react-router-dom
+```
+
