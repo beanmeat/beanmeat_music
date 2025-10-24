@@ -143,11 +143,11 @@ module.exports = {
 }
 ```
 
-### [CSS重置&Less支持](https://4x.ant.design/docs/react/use-with-create-react-app-cn
-
-)
+### [CSS重置&Less支持](https://4x.ant.design/docs/react/use-with-create-react-app-cn)
 
 [Normalize.css](https://necolas.github.io/normalize.css/)
+
+一种现代的、适用于HTML5的CSS重置方案的替代品
 
 ```shell
 npm install normalize.css
@@ -169,8 +169,6 @@ root.render(<App />)
 
 
 #### [Less支持](https://4x.ant.design/docs/react/use-with-create-react-app-cn)
-
-
 
 ![image-20250924153423154](images/beanmeat_music.assets/image-20250924153423154.png)
 
