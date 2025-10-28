@@ -211,3 +211,120 @@ module.exports = {
 npm install react-router-dom
 ```
 
+
+
+### redux
+
+安装依赖
+
+```shell
+npm install @redux/toolkit react-redux
+```
+
+
+
+```ts
+// store/index.ts
+import { configureStore } from '@reduxjs/toolkit'
+import counterReducer from './modules/counter'
+
+const store = configureStore({
+  reducer: {
+    counter: counterReducer
+  }
+})
+
+type GetStateFnType = typeof store.getState
+export type IRootState = ReturnType<GetStateFnType>
+
+export default store
+```
+
+
+
+```ts
+// store/modules/counter.ts
+import { createSlice } from '@reduxjs/toolkit'
+
+const counterSlice = createSlice({
+  name: 'counter',
+  initialState: {
+    count: 1000,
+    name: 'Beanmeat'
+  },
+  reducers: {}
+})
+export default counterSlice.reducer
+```
+
+
+
+```ts
+// store/hook.ts
+
+import { useSelector, TypedUseSelectorHook } from 'react-redux'
+import { IRootState } from '@/store/index'
+
+export const useAppSelector: TypedUseSelectorHook<IRootState> = useSelector
+```
+
+
+
+```tsx
+// 使用
+const { count } = useAppSelector(
+    (state) => ({
+        count: state.counter.count
+    }),
+  shallowEqual
+)
+```
+
+
+
+在ts中，在业务代码中正常写`state.counter.count`会报错，因为state会被识别为`unknown`类型，这种类型不能用于任何操作，所以可以加`any`类型
+
+```ts
+const { count } = useSelector(
+    (state:any) => ({
+        count: state.counter.count
+    }),
+  shallowEqual
+)
+```
+
+但如果对`state`声明`any`类型会导致state.counter.count提示不出来。所以采用`TypedUseSelectorHook`，为了防止以后每个文件都会对这个`state`进行类型推导，所以不适用`useSelector`，自己新暴露一个，如上图所示。
+
+
+
+dispatch同理
+
+```ts
+import { configureStore } from '@reduxjs/toolkit'
+import counterReducer from './modules/counter'
+
+const store = configureStore({
+  reducer: {
+    counter: counterReducer
+  }
+})
+
+type GetStateFnType = typeof store.getState
+type DispatchFnType = typeof store.dispatch
+
+export type DispatchType = DispatchFnType
+export type IRootState = ReturnType<GetStateFnType>
+
+export default store
+```
+
+
+
+```ts
+import { useSelector, TypedUseSelectorHook, useDispatch } from 'react-redux'
+import { DispatchType, IRootState } from '@/store/index'
+
+export const useAppSelector: TypedUseSelectorHook<IRootState> = useSelector
+export const useAppDispatch: () => DispatchType = useDispatch
+```
+
